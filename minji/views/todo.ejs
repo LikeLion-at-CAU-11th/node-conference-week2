@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My ToDo List</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="header-layout">
+      <h1>📌 My ToDo List</h1>
+    </div>
+    <div class="add-todo">
+      <form id="addTodoForm">
+        <input type="text" id="content" placeholder="Task" required />
+        <input type="date" id="deadLine" required />
+        <input type="number" id="priority" placeholder="Priority" required />
+        <button type="submit">추가</button>
+      </form>      
+    </div>
+    <div class="article-layout">
+      <div class="article-column">
+        <div>Task</div>
+        <div>Dead Line</div>
+        <div>Priority</div>
+        <div></div>
+      </div>
+      <% todos.forEach(todo => { %>
+      <div class="article">
+        <div><%= todo.content %></div>
+        <div><%= todo.deadLine %></div>
+        <div><%= todo.priority %></div>
+        <button class="deleteBtn" data-id="<%= todo._id %>"></button>
+      </div>
+      <%}); %>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

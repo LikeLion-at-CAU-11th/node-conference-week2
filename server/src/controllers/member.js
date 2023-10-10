@@ -1,4 +1,4 @@
-const Member = require("./models");
+const Member = require("../models/members");
 
 exports.greetMember = (req, res, next) => {
   return res.render("greeting.ejs");

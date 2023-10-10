@@ -1,12 +1,11 @@
 const express = require("express");
 const path = require("path");
-const cors = require("cors");
 
 module.exports = function () {
   const app = express();
 
   app.use(express.json());
-  app.use(cors());
+  app.use(express.urlencoded({ extended: false }));
 
   app.use(express.static(path.join(process.cwd(), "views")));
   app.set("views", path.join(process.cwd(), "views"));

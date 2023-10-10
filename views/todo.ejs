@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LikeLion Attendence</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="header-layout">
+      <h1>멋쟁이 사자처럼 11기 todo-list</h1>
+      <form id="todo-form" action="/todos" method="POST">
+        <input id="title" name="title" placeholder="todo title" required />
+        <input
+          type="date"
+          id="due-date"
+          name="dueDate"
+          max="2024-12-31"
+          min="2023-10-04"
+          value="2023-10-10"
+          required
+        />
+        <input
+          type="number"
+          id="priority"
+          name="priority"
+          placeholder="your priority number"
+          required
+        />
+        <button>추가</button>
+      </form>
+    </div>
+    <div class="article-layout">
+      <div class="article-column">
+        <div>제목</div>
+        <div>기한</div>
+        <div>우선순위</div>
+      </div>
+      <% todos.forEach(todo => { %>
+      <div class="article">
+        <div><%= todo.title %></div>
+        <div><%= todo.dueDate %></div>
+        <div><%= todo.priority %></div>
+        <div class="delete-btn" value="<%= todo._id %>">X</div>
+      </div>
+      <% }); %>
+    </div>
+    <script src="./fetch.js"></script>
+  </body>
+</html>

@@ -5,5 +5,5 @@ module.exports = function (app) {
 
     app.get("/", todo.getTodoList);
     app.post('/add', todo.addTodo);
-    app.delete('/delete', todo.deleteTodo);
+    app.post('/delete/:id', todo.deleteTodo);
 };

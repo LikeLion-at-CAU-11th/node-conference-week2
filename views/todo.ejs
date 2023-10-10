@@ -28,14 +28,15 @@
         </form>
         
         <% todos.forEach(todo => { %>
+            <form action="/delete/<%= todo._id %>" method="post">
             <div class="article">
+                
                 <div><%= todo.todo %></div>
                 <div><%= todo.date %></div>
                 <div><%= todo.rank %></div>
-                <form action="/delete" method="delete">
-                    <button id="delete">X</button>
-                </form>
-                </div>
+                <button id="delete">X</button>
+            </div>
+            </form>
         <% }); %>
     </div>
 </body>

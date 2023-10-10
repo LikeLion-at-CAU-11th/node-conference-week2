@@ -30,8 +30,15 @@ exports.addTodo = async (req, res)=>{
     }
 }
 
-exports.deleteTodo = async ()=>{
-    
+exports.deleteTodo = async (req, res)=>{
+    try{
+        console.log(req.params.id);
+        await Todo.findByIdAndRemove(req.params.id);
+        res.redirect('/');
+    }catch(err){
+        console.err(err);
+        res.status(500).send(err.message);
+    }
 }
 
 // exports.createMember = (req, res, next) => {

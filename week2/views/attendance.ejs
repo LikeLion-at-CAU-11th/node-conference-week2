@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LikeLion Attendence</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+<body>
+        <div class="header-layout">
+            <h1>멋쟁이 사자처럼 11기 출석부</h1>
+        </div>
+        <div class="article-layout">
+            <div class="article-column">
+                <div>이름</div>
+                <div>학과(부)</div>
+                <div>파트</div>
+            </div>
+
+
+            <% todos.forEach(todoItem=>{ %>
+                <div class="article">
+                    <div><%= todoItem.todos %></div>
+                    <div><%= todoItem.dueDate %></div>
+                    <div><%= todoItem.priority %></div>
+
+                </div>
+            <% }); %>
+            <div class="article">
+                <div>박경빈</div>
+                <div>소프트웨어학부</div>
+                <div>프론트엔드</div>
+            </div>
+            <div class="article">
+                <div>한윤호</div>
+                <div>소프트웨어학부</div>
+                <div>백엔드</div>
+            </div>
+        </div>
+    
+    </body>
+
+</html>

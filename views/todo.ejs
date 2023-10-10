@@ -32,7 +32,9 @@
                 <div><%= todo.todo %></div>
                 <div><%= todo.date %></div>
                 <div><%= todo.rank %></div>
-                <button id="delete">X</button>
+                <form action="/delete" method="delete">
+                    <button id="delete">X</button>
+                </form>
                 </div>
         <% }); %>
     </div>

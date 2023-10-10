@@ -13,6 +13,27 @@ exports.getTodoList = (req, res, next) => {
     });
 }
 
+exports.addTodo = async (req, res)=>{
+    // console.log(req.body);
+    const newTodo = new Todo({
+        todo: req.body.todo,
+        date: req.body.date,
+        rank: req.body.rank
+    });
+    console.log(newTodo);
+    try {
+        await newTodo.save();
+        res.redirect('/');
+    } catch(err) {
+        console.error(err);
+        res.status(500).send(err.message);
+    }
+}
+
+exports.deleteTodo = async ()=>{
+    
+}
+
 // exports.createMember = (req, res, next) => {
 //     const name = req.body.name;
 //     const department = req.body.department;

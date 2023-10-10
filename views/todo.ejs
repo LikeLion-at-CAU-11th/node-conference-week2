@@ -18,7 +18,7 @@
             <div>순위</div>
             <div>버튼</div>
         </div>
-        <form action="/add" method="post" id="inputForm">
+        <form action="/add" method="post" class="form">
             <div class="article">
                 <input type="text" name="todo">
                 <input type="date" name="date">
@@ -28,7 +28,7 @@
         </form>
         
         <% todos.forEach(todo => { %>
-            <form action="/delete/<%= todo._id %>" method="post">
+            <form action="/delete/<%= todo._id %>" method="post" class="form">
             <div class="article">
                 
                 <div><%= todo.todo %></div>

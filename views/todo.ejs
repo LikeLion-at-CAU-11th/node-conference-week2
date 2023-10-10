@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="header-layout">
+        <h1>투두 리스트</h1>
+    </div>
+    <div class="article-layout">
+        
+        <div class="article-column">
+            <div>할일</div>
+            <div>기간</div>
+            <div>순위</div>
+            <div>버튼</div>
+        </div>
+        <form action="/add" method="post" class="form">
+            <div class="article">
+                <input type="text" name="todo">
+                <input type="date" name="date">
+                <input type="text" name="rank">
+                <button>추가</button>
+            </div>
+        </form>
+        
+        <% todos.forEach(todo => { %>
+            <form action="/delete/<%= todo._id %>" method="post" class="form">
+            <div class="article">
+                
+                <div><%= todo.todo %></div>
+                <div><%= todo.date %></div>
+                <div><%= todo.rank %></div>
+                <button id="delete">X</button>
+            </div>
+            </form>
+        <% }); %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+
+const todoSchema = new Schema({
+    string:{
+        type:String,
+        required: true
+    },
+    date:{
+        type:String,
+        required: true
+    },
+    num:{
+        type:String,
+        required: true
+    },
+});
+
+module.exports = mongoose.model('Todo',todoSchema,'todos');

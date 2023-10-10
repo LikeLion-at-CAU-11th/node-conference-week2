@@ -8,36 +8,46 @@
     </head>
 <body>
         <div class="header-layout">
-            <h1>멋쟁이 사자처럼 11기 출석부</h1>
+            <h1>TodoList</h1>
         </div>
         <div class="article-layout">
+            <form class="form-layout" action="/members" method="post"> 
+                <p><input type="text" name="todos"></p>
+                <p><input type="date" name="dueDate"></p>
+                <p><input type="number" name="priority"></p>
+                <button type="submit">전송</button>
+                
+            </form>
             <div class="article-column">
-                <div>이름</div>
-                <div>학과(부)</div>
-                <div>파트</div>
+                <div>Todo</div>
+                <div>DeadLine</div>
+                <div>Priority</div>
+                <div>Delete</div>
             </div>
-
-
             <% todos.forEach(todoItem=>{ %>
                 <div class="article">
                     <div><%= todoItem.todos %></div>
                     <div><%= todoItem.dueDate %></div>
                     <div><%= todoItem.priority %></div>
-
+                    <form class="delete-form" action="/members/<%= todoItem._id %>" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit">X</button>
+                    </form>
                 </div>
             <% }); %>
-            <div class="article">
-                <div>박경빈</div>
-                <div>소프트웨어학부</div>
-                <div>프론트엔드</div>
-            </div>
-            <div class="article">
-                <div>한윤호</div>
-                <div>소프트웨어학부</div>
-                <div>백엔드</div>
-            </div>
         </div>
     
     </body>
-
+    <script>
+        window.onload = function() {
+            const deleteForms = document.querySelectorAll('.delete-form');
+            deleteForms.forEach(form => {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    fetch(form.action, { method: 'DELETE' })
+                        .then(res => window.location.reload());
+                });
+            });
+        };
+        </script>
 </html>

@@ -26,5 +26,12 @@ exports.createTodo = (req, res,next)=>{
         })
     })
     .catch(err=>console.log('err', err))
-
 }
+exports.deleteTodo = (req, res, next) => {
+    const todoId = req.params.todoId;
+    Todos.findByIdAndRemove(todoId)
+        .then(() => {
+            res.redirect('/members');
+        })
+        .catch(err => console.log(err));
+};

@@ -3,6 +3,7 @@ const path = require("path");
 module.exports=function(){
     const app = express();
     app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
     app.use(express.static(path.join(process.cwd(), "views")))
     app.set("views", path.join(process.cwd(), "views"));
     app.set("view engine", "ejs");

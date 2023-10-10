@@ -1,5 +1,5 @@
 const express = require("./server/config/express")
-const secrets = require('./secrets.json')
+const secrets = require('../week2/.gitignore/secrets.json')
 const mongoose = require("mongoose");
 
 const port = 3000;

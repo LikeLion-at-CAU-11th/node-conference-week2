@@ -3,24 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LikeLion Attendence</title>
+    <title>ToDoList</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="header-layout">
       <h1>ToDoList</h1>
     </div>
+    <form action="/addTodo" method="POST">
+      <input type="text" name="task" placeholder="할 일" required />
+      <input type="date" name="deadline" placeholder="기한" required />
+      <input type="number" name="priority" placeholder="우선순위" required />
+      <!-- 추가 버튼 -->
+      <button type="submit">추가</button>
+    </form>
     <div class="article-layout">
       <div class="article-column">
         <div>할 일</div>
         <div>기한</div>
         <div>우선순위</div>
+        <div>todo 삭제</div>
+        <% todos.forEach(todo => { %>
+        <div class="todo-item">
+
+          <%= todo.task %> - <%= todo.deadline %> - <%= todo.priority %>
+
+          <form
+            action="/deleteTodo/<%= todo._id %>"
+            method="POST"
+            style="display: inline"
+          >
+            <input type="hidden" name="_method" value="DELETE" />
+            <button type="submit">삭제</button>
+          </form>
+        </div>
+        <% }); %>
       </div>
-      <!-- <div class="article">
-        <div>노드 과제</div>
-        <div>오늘</div>
-        <div>1</div>
-      </div> -->
     </div>
   </body>
 </html>

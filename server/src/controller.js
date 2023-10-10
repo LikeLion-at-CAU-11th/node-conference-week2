@@ -1,9 +1,5 @@
 const Todo = require("./models");
 
-exports.greetTodos = (req, res, next) => {
-  return res.render("todo.ejs");
-}
-
 exports.getTodoList = (req, res, next) => {
     Todo.find().then(todoListData => {
       return res.render("todo.ejs", { todos : todoListData });

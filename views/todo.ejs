@@ -18,12 +18,14 @@
             <div>버튼</div>
         </div>
         
-        <div class="article">
-            <div>todo</div>
-            <div>20231010</div>
-            <div>1</div>
-            <div>버튼</div>
-        </div>
+        <% todos.forEach(todo => { %>
+            <div class="article">
+                <div><%= todo.todo %></div>
+                <div><%= todo.date %></div>
+                <div><%= todo.rank %></div>
+                <div>버튼</div>
+                </div>
+        <% }); %>
     </div>
 </body>
 </html>

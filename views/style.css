@@ -1,6 +1,7 @@
 @font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -12,7 +13,7 @@ html {
   overflow: scroll;
   display: flex;
   justify-content: center;
-  font-family: 'Pretendard-Regular';
+  font-family: "Pretendard-Regular";
   font-size: 10px;
 }
 
@@ -29,20 +30,19 @@ body {
   gap: 1.5rem;
 }
 
-h1{
+h1 {
   font-size: 3rem;
 }
 
-.header-layout{
+.header-layout {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: fit-content;
   margin-top: 1.5rem;
-  /* border: 1px solid black; */
 }
-.article-layout{
+.article-layout {
   display: flex;
   width: 95%;
   height: 80%;
@@ -51,7 +51,7 @@ h1{
   align-items: center;
   /* background-color: aqua; */
 }
-.article-column{
+.article-column {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 60%;
@@ -63,9 +63,9 @@ h1{
   border-radius: 10px;
   grid-gap: 2rem;
 }
-.article{
+.article {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   width: 60%;
   height: fit-content;
   font-size: 1.5rem;
@@ -74,14 +74,25 @@ h1{
   /* background-color: rgba(255, 214, 184, 1); */
   border-bottom: 1px solid #c9c9c9;
 }
-.greeting{
+.delete-btn {
+  width: 5%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 100%;
+  background-color: rgba(255, 214, 184, 1);
+  cursor: pointer;
+}
+.greeting {
   display: flex;
   flex-direction: column;
   flex-basis: 98vh;
   justify-content: center;
   align-items: center;
 }
-.greeting-ment{
+.greeting-ment {
   display: flex;
   align-items: center;
   justify-content: center;

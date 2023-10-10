@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LikeLion Todolist</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="header-layout">
+        <h1>당장 해야 할 일</h1>
+    </div>
+    <div class="article-layout">
+        <div class="article-column">
+            <div>할 일</div>
+            <div>기한</div>
+            <div>우선순위</div>
+        </div>
+        <% todos.forEach(todo => {%>
+        <div class="article">
+            <div><input type="checkbox"><%= todo.string %></div>
+            <div><%= todo.date %></div>
+            <div><%= todo.num %></div>
+        </div>
+        <% }); %>
+    </div>
+</body>
+</html>

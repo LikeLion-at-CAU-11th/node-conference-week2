@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LikeLion Attendence</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+<body>
+        <div class="header-layout">
+            <h1>TodoList</h1>
+        </div>
+        <div class="article-layout">
+            <form class="form-layout" action="/members" method="post"> 
+                <p><input type="text" name="todos"></p>
+                <p><input type="date" name="dueDate"></p>
+                <p><input type="number" name="priority"></p>
+                <button type="submit">전송</button>
+                
+            </form>
+            <div class="article-column">
+                <div>Todo</div>
+                <div>DeadLine</div>
+                <div>Priority</div>
+                <div>Delete</div>
+            </div>
+            <% todos.forEach(todoItem=>{ %>
+                <div class="article">
+                    <div><%= todoItem.todos %></div>
+                    <div><%= todoItem.dueDate %></div>
+                    <div><%= todoItem.priority %></div>
+                    <form class="delete-form" action="/members/<%= todoItem._id %>" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit">X</button>
+                    </form>
+                </div>
+            <% }); %>
+        </div>
+    
+    </body>
+    <script>
+        window.onload = function() {
+            const deleteForms = document.querySelectorAll('.delete-form');
+            deleteForms.forEach(form => {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    fetch(form.action, { method: 'DELETE' })
+                        .then(res => window.location.reload());
+                });
+            });
+        };
+        </script>
+</html>
